@@ -40,12 +40,98 @@ void ninty9_bottles()
             }
         }
 
+        int main();
+
+}
+
+
+int Calculator_ADD(int value1,int value2)
+{
+    // Calculator ADD two values
+    return value1 + value2;
+}
+int Calculator_Subtract(int value1, int value2)
+{
+    // Calculator Subtract two values
+    return value1 - value2;
+}
+
+int Calculator_Multiply(int value1, int value2)
+{
+    // Calculator Multiple
+    return value1 * value2;
+}
+
+int Calculator_Divide(int value1, int value2)
+{
+    // Calculator Divide
+    return value1 / value2;
 }
 
 void calculator_menu_parse()
 {
+// Display calculator menu and parse input;
+int selected_input;
+int value1 = 0;
+int value2 = 0;
+int results = 0;
+while (true)
+    {
+        cout << "\nCalculator\n";
+        cout << "1. ADD\n";
+        cout << "2. SUBSTRACT\n";
+        cout << "3. MULTIPLY\n";
+        cout << "4. DIVIDE\n";
+        cout << "0. Exit\n";
+        cout << "Please input a choice [1,2,3,4,0]: ";
+        cin >> selected_input;
 
+        switch (selected_input)
+        {
+        case 0:
+            return;
+        case 1:
+            // ADD
+            cout << "\nPlease enter first value: ";
+            cin >> value1;
+            cout << "\nPlease enter second value: ";
+            cin >> value2;
+            results = Calculator_ADD(value1,value2);
+            cout << "\nResults: " << results << "\n";
+            break;
+
+        case 2:
+            // Subtract
+            cout << "\nPlease enter first value: ";
+            cin >> value1;
+            cout << "\nPlease enter second value: ";
+            cin >> value2;
+            results = Calculator_Subtract(value1,value2);
+            cout << "\nResults: " << results << "\n";
+            break;
+        case 3:
+            //Multiply
+            cout << "\nPlease enter first value: ";
+            cin >> value1;
+            cout << "\nPlease enter second value: ";
+            cin >> value2;
+            results = Calculator_Multiply(value1,value2);
+            cout << "\nResults: " << results << "\n";
+            break;
+        case 4:
+            //Divide
+            cout << "\nPlease enter first value: ";
+            cin >> value1;
+            cout << "\nPlease enter second value: ";
+            cin >> value2;
+            results = Calculator_Divide(value1,value2);
+            cout << "\nResults: " << results << "\n";
+            break;
+        }
+
+    }
 }
+
 
 int menu_parse()
 {
@@ -68,8 +154,10 @@ int menu_parse()
                 return 0;
             case 1:
                 ninty9_bottles();
+                break;
             case 2:
-                return 0;
+                calculator_menu_parse();
+                break;
             }
 
 
